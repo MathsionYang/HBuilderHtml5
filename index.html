@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--
+        	作者：77211356@qq.com
+        	时间：2017-03-12
+        	描述：网页编辑类型
+        -->
+		<meta charset="utf-8" />
+		<title>Hello, Html5</title>
+		<!--描述：CSS样式关联-->
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/jquery-1.8.3.min.js"></script>
+	    <!--Luara js文件-->
+	    <script src="js/jquery.luara.0.0.1.min.js"></script>
+		
+	</head>
+	<body>
+		<header>
+			<!--描述：这是标题，背景是图片，可换成自己的，注意高度和宽度的设置，例子中网页的主体部分的宽度是980px,因此图片的宽度也调整为980。-->
+			<h1></h1>
+		</header>
+		<!-- 导航开始-->
+		<nav>
+			<ul>
+				<!--
+                	作者：77211356@qq.com
+                	时间：2017-03-12
+                	描述：导航菜单列表
+                	target="_blank"  代表打开新网页，如果不加此属性，当前网页会直接跳转到目标网页
+                -->
+				<li><a href="index.html">主页</a></li>
+				<li><a href="schedule.html">我的课程表</a></li>
+				<li><a href="BaiduMapAPI.html">百度地图API</a></li>
+				<li><a href="http://contest.esrichina.com.cn/" target="_blank">Esri开发竞赛2017</a></li>
+				<li><a href="http://www.giscontest.com/" target="_blank">SuperMap杯GIS大赛2017</a></li>
+				<li><a href="http://contest.gisera.com/" target="_blank">MapGIS技能大赛2016</a></li>
+				
+			</ul>
+		</nav>
+		<!-- 导航结束 -->
+		
+		<!-- #主体内容 -->
+		<section id="content">
+    		<!--
+            	作者：77211356@qq.com
+            	时间：2017-03-12
+            	描述：正文第一部分：互联网时代
+            -->
+    		<article>
+    			<!--
+                	作者：77211356@qq.com
+                	时间：2017-03-12
+                	描述：标题+超链接
+                -->
+				<h2>
+					<a href="https://en.wikipedia.org/wiki/Information_Age" target="_blank">Internet</a>
+				</h2>
+				<!--
+                	作者：77211356@qq.com
+                	时间：2017-03-12
+                	描述：正文中的图片引用，本地图片，图片都放在工程的img文件夹下
+               -->
+					
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Internet is the global system of interconnected computer networks that use the Internet protocol suite (TCP/IP) to link devices worldwide. It is a network of networks that consists of private, public, academic, business, and government networks of local to global scope, linked by a broad array of electronic, wireless, and optical networking technologies. The Internet carries an extensive range of information resources and services, such as the inter-linked hypertext documents and applications of the World Wide Web (WWW), electronic mail, telephony, and peer-to-peer networks for file sharing.
+				</p>
+    		</article>
+    		<hr/>
+			<!--
+            	作者：77211356@qq.com
+            	时间：2017-03-12
+            	描述：正文第二部分Tim Berners-Lee
+            -->
+			<article>
+				<!--
+                	作者：77211356@qq.com
+                	时间：2017-03-12
+                	描述：Tim Berners-Lee标题+超链接
+                -->
+				<h2>
+					<a href="https://en.wikipedia.org/wiki/Tim_Berners-Lee" target="_blank">Tim Berners-Lee</a>
+				</h2>
+				<!--
+                	作者：77211356@qq.com
+                	时间：2017-03-12
+                	描述：Tim Berners-Lee正文描述
+                -->
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;蒂莫西·约翰·“蒂姆”·伯纳·李爵士（Tim Berners-Lee），OM，KBE，FRS，FREng，FRSA，（Sir Timothy John "Tim" Berners-Lee，1955年6月8日－），英国计算机科学家。他是万维网的发明者，南安普顿大学与麻省理工学院教授。1990年12月25日，罗伯特·卡里奥在CERN和他一起成功通过Internet实现了HTTP代理与服务器的第一次通讯。
+				</p>
+				<!--
+                	作者：77211356@qq.com
+                	时间：2017-03-12
+                	描述：在线视频
+                -->
+				<p id="video1">
+					<video controls="controls">
+						<source src="https://video-subtitle.tedcdn.com/talk/podcast/2009/None/TimBernersLee_2009-480p-en.mp4" type="video/mp4"></source>
+					</video>
+				</p>
+				<!--
+                	作者：77211356@qq.com
+                	时间：2017-03-12
+                	描述：Tim Berners-Lee描述第二段
+                -->
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;万维网联盟（W3C）是伯纳斯·李为关注万维网发展而创办的组织，并担任万维网联盟的主席。他也是万维网基金会的创办人。伯纳斯-李还是麻省理工学院计算机科学及人工智能实验室创办主席及高级研究员。同时，伯纳斯-李是网页科学研究倡议会的总监。最后，他是麻省理工学院集体智能中心咨询委员会成员。
+				</p>
+    		</article>
+    		<hr/>
+			<!--
+            	作者：77211356@qq.com
+            	时间：2017-03-12
+            	描述：正文第三部分Html5
+            	每一个<p></p>标签代表一个新的段落，下面的代码注释与上面类似
+            -->
+    		<article>
+				<p>
+					这个图片可以点
+					<a href="https://en.wikipedia.org/wiki/HTML5" target="_blank"><img src="img/html5.jpg" alt="" class="alignright" /></a>
+				</p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTML5 is a markup language used for structuring and presenting content on the World Wide Web. It is the fifth and current version of the HTML standard.
+				</p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It was published in October 2014 by the World Wide Web Consortium (W3C)to improve the language with support for the latest multimedia, while keeping it both easily readable by humans and consistently understood by computers and devices such as web browsers, parsers, etc. HTML5 is intended to subsume not only HTML 4, but also XHTML 1 and DOM Level 2 HTML.
+				</p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTML5 includes detailed processing models to encourage more interoperable implementations; it extends, improves and rationalizes the markup available for documents, and introduces markup and application programming interfaces (APIs) for complex web applications.For the same reasons, HTML5 is also a candidate for cross-platform mobile applications, because it includes features designed with low-powered devices in mind.
+				</p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+			</article>
+			<hr/>
+			<!--描述：正文第四部分播放本地音乐文件-->
+			<article>
+				<h2>
+	    			<a href="http://www.w3school.com.cn/html5/html_5_audio.asp" target="_blank">本地音频文件添加参考网站</a>	
+		    	</h2>
+		    	<p>
+		    		<audio controls="controls">
+		    			<source src="music/匆匆那年_王菲.mp3" type="audio/mp3"></source>
+		    		</audio>
+		    	</p>
+			</article>
+			<!--分割线-->
+			<hr/>
+			
+			<!--在线音乐播放-->
+			<article>
+				<h2>
+	    		在线音乐播放
+			    </h2>
+		    	<p>
+		    		<embed src="//music.163.com/style/swf/widget.swf?sid=29045499&type=2&auto=0&width=320&height=66" width="320" height="86"  allowNetworking="all"></embed>
+		    		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=86 src="//music.163.com/outchain/player?type=2&id=5315979&auto=0&height=66"></iframe>
+		    		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=86 src="//music.163.com/outchain/player?type=2&id=1430197&auto=0&height=66"></iframe>
+		    		
+		    	</p>
+			</article>
+		</section>
+		<!-- end of #content -->
+	    <!--
+        	作者：77211356@qq.com
+        	时间：2017-03-12
+        	描述：底部说明
+        -->
+		<footer>
+			<p>
+				湖北大学资源环境学院：计算机网络技术与应用课堂练习
+			</p>
+		</footer>
+	</body>
+</html>

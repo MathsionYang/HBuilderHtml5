@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/schedulestyle.css" />
+		<script type="text/javascript" src="js/ScheduleClass.js" ></script>
+		<title>我的课程表</title>
+	</head>
+	<body>
+		<header>
+			<h1></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">主页</a></li>
+				<li><a href="schedule.html">我的课程表</a></li>
+				<li><a href="BaiduMapAPI.html">百度地图API</a></li>
+				<li><a href="http://contest.esrichina.com.cn/" target="_blank">Esri开发竞赛2017</a></li>
+				<li><a href="http://www.giscontest.com/" target="_blank">SuperMap杯GIS大赛2017</a></li>
+				<li><a href="http://contest.gisera.com/" target="_blank">MapGIS技能大赛2016</a></li>
+				
+			</ul>
+		</nav>
+		<section id="content">
+			<article>
+				<p >
+				</p>
+				<p>
+				<table border="1" cellspacing="0" cellpadding="0">
+					<tr><th>时间</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th><th>星期日</th></tr>
+					<tr><td>06:00-07:00</td><td colspan="7" rowspan="2">起床、早餐、早读</td></tr>
+					<tr><td>07:00-08:00</td></tr>
+					<tr><td>08:00-09:00</td><td>Data</td><td>Data</td><td rowspan="2">Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+					<tr><td>09:00-10:00</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+					<tr><td>10:00-11:00</td><td rowspan="2">Data</td><td>Data</td><td rowspan="2">Data</td><td>Data</td><td rowspan="2">Data</td><td rowspan="2" colspan="2">Data</td></tr>
+					<tr><td>11:00-12:00</td><td>Data</td><td>Data</td></tr>
+					<tr><td>12:00-13:00</td><td colspan="7" rowspan="2">午餐、午休</td></tr>
+					<tr><td>13:00-14:00</td></tr>
+					<tr><td>14:00-15:00</td><td>Data</td><td>Data</td><td rowspan="3">学院大会</br>政治学习</br>教工活动</td><td>Data</td><td>Data</td><td rowspan="2">Data</td><td rowspan="3">Data</td></tr>
+					<tr><td>15:00-16:00</td><td>Data</td><td>Data</td><td>Data</td><td rowspan="2">Data</td></tr>
+					<tr><td>16:00-17:00</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+					<tr><td>17:00-18:00</td><td colspan="7" rowspan="2">休闲、放松、晚餐</td></tr>
+					<tr><td>18:00-19:00</td></tr>
+					<tr><td>19:00-20:00</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td rowspan="4">Data</td><td>Data</td><td>Data</td></tr>
+					<tr><td>20:00-21:00</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+					<tr><td>21:00-22:00</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+					<tr><td>22:00-23:00</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+					<tr><td>23:00</td><td colspan="7">睡觉</td></tr>
+				</table>
+			</p>
+			</article>
+			<article>
+				<p id="scorestandard">
+					请选择作业类型：&nbsp;&nbsp;&nbsp;&nbsp;
+					<select id="oType"  onchange="changeTitle()";>
+					  <option value ="1">最低限度完成作业</option>
+					  <option value ="2">内容完整、丰富</option>
+					  <option value ="3">排版整齐【文档、字体】，格式规范【如作业命名】</option>
+					  <option value ="4">思路清晰，结构合理，设计美观【配色，排版布局】</option>
+					  <option value ="5">超出作业要求，有自己的创意</option>
+					  <option value ="6">超越老师，超越自我，让自己流下感动的泪水</option>
+					  <option value ="7">如果没能按时交作业，命名不规范或者抄袭与被抄袭</option>
+					</select>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+				</p>
+				<p id="computeDemo">
+					请输入数字： <input type="number" id="txt_a" value="" />
+				    <!--描述：定义下拉列表的选项-->
+				    <select name="选择运算符" id="ComputeType">
+				     	<option value="add">+</option>
+				     	<option value="minus">-</option>
+				     	<option value="multiply">*</option>
+				     	<option value="divide">/</option>
+				    </select>
+				    <!--描述：这是文本控件的例子-->
+				    <input type="number" id="txt_b" value="" />
+				    =
+				    <!--描述：这是文本控件的例子-->
+				    <input type="number" id="txt_c" value="" />
+				    <!--描述：这是按钮控件的例子-->
+					<input type="button" id="btn_compute" value="点我进行计算" onclick="compute()"/>
+				</p>
+			</article>
+		</section>
+			
+		<footer>
+			<p>
+				湖北大学资源环境学院：计算机网络技术与应用课堂练习
+			</p>
+		</footer>
+	</body>
+	
+</html>

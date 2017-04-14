@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/BaiduMapAPI.css" />
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=18NwnTeKzmkoMSpsNCTkUudt"></script>
+		<script type="text/javascript" src="js/BaiduMapAPI.js" ></script>
+		<title>百度地图API学习</title>
+	</head>
+	<body onload="init()">
+		<header>
+			<h1></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">主页</a></li>
+				<li><a href="schedule.html">我的课程表</a></li>
+				<li><a href="BaiduMapAPI.html">百度地图API</a></li>
+				<li><a href="http://contest.esrichina.com.cn/" target="_blank">Esri开发竞赛2017</a></li>
+				<li><a href="http://www.giscontest.com/" target="_blank">SuperMap杯GIS大赛2017</a></li>
+				<li><a href="http://contest.gisera.com/" target="_blank">MapGIS技能大赛2016</a></li>
+			</ul>
+		</nav>
+		<section id="mainmap">
+			<article id="baidumap">
+				<p>
+					
+				</p>
+			</article>
+			<article id="querycontent">
+				起点:<input type="text" id="tex_a" value="" />
+				终点:<input type="text" id="tex_b" value="" />
+				<input type="button" id="btn_WalkRouteQuery" value="步行规划" onclick="WalkRouteQuery()"/>
+				<input type="button" id="btn_Driving" value="驾车路线" onclick="DrivingQuery()"/>
+				<input type="button" id="btn_Bus" value="公交路线" onclick="BusQuery()"/>
+			</article>
+			<article id="r-result">
+				
+			</article>
+		</section>
+		<footer>
+			<p>
+				湖北大学资源环境学院：计算机网络技术与应用课堂练习
+			</p>
+		</footer>
+	</body>
+</html>
