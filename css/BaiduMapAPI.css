@@ -9,3 +9,11 @@
 	height: 640px;
 	overflow: hidden;
 }
+#querycontent,#addsomemaker{
+	
+	/*离下面的部分宽度为2*/
+	margin-bottom: 2px;
+	/*离上面10个像素*/
+	padding-top: 2px;
+	padding-bottom: 2px;
+}

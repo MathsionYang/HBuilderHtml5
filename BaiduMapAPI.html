@@ -27,7 +27,9 @@
 		</nav>
 		<section id="mainmap">
 			
-			<article id="querycontent">
+			<fieldset>
+				<legend align="center">主题 与交通路线查询</legend>
+				<article id="querycontent">
 				<label>选择主题</label>
 				<select id="stylelist" onchange="changeMapStyle(this.value)"></select>
 				起点:<input type="text" id="tex_a" value="" />
@@ -35,8 +37,19 @@
 				<input type="button" id="btn_WalkRouteQuery" value="步行规划" onclick="WalkRouteQuery()"/>
 				<input type="button" id="btn_Driving" value="驾车路线" onclick="DrivingQuery()"/>
 				<input type="button" id="btn_Bus" value="公交路线" onclick="BusQuery()"/>
-			</article>
-			<div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+				</article>
+				<div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+			</fieldset>
+			<fieldset>
+				<legend align="center">添加标记点</legend>
+				<article id="addsomemaker">
+					<input type="button" id="btn_primary" value="小学" onclick="addPrimary()"/>
+					<input type="button" id="btn_junior" value="初中" onclick="addJuniormiddle()"/>
+					<input type="button" id="btn_high" value="高中" onclick="addSeniormiddle()"/>
+					<input type="button" id="btn_university" value="大学" onclick="addUniversity()"/>
+					<input type="button" id="btn_fullscreen" value="显示全部" onclick="fullscreen()"/>
+				</article>
+			</fieldset>
 			<article id="baidumap">
 				<p>
 					
