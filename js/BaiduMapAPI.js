@@ -148,26 +148,6 @@ function BusQuery(){
 
 
 //-------------------------------------------------------------------------------------------
-// 创建单点标记函数
-function addMarker(point){
-  var marker = new BMap.Marker(point);
-  map.addOverlay(marker);
-  
-}
-
-// 创建跳动标记函数
-function addMarkerBound(point){
-  var marker = new BMap.Marker(point);
-  map.addOverlay(marker);
-  marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
-}
-
-// 创建图片标记函数
-function addMarkerPic(point){
-  var myIcon = new BMap.Icon("http://developer.baidu.com/map/jsdemo/img/fox.gif", new BMap.Size(300,157));
-  var marker = new BMap.Marker(point,{icon:myIcon});  // 创建标注
-  map.addOverlay(marker);
-}
 
 //添加小学
 function addPrimary(){
@@ -178,7 +158,11 @@ function addPrimary(){
 	//定位地图中心到标记点
 	map.centerAndZoom(point, 18);
 	//调用标记点函数进行标记
-	addMarker(point);
+	var marker = new BMap.Marker(point);
+  	map.addOverlay(marker);
+  	
+  	var content = "这是我的小学";
+  	addClickHandler(content,marker);
 }
 
 //添加初中
@@ -190,7 +174,11 @@ function addJuniormiddle(){
 	//定位地图中心到标记点
 	map.centerAndZoom(point, 18);
 	//调用标记点函数进行标记
-	addMarker(point);
+	var marker = new BMap.Marker(point);
+  	map.addOverlay(marker);
+  	
+  	var content = "这是我的初中";
+  	addClickHandler(content,marker);
 }
 
 //添加高中
@@ -202,7 +190,12 @@ function addSeniormiddle(){
 	//定位地图中心到标记点
 	map.centerAndZoom(point, 18);
 	//调用标记点函数进行标记
-	addMarkerBound(point);
+	var marker = new BMap.Marker(point);
+    map.addOverlay(marker);
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    
+    var content = "这是我的高中";
+  	addClickHandler(content,marker);
 }
 
 //添加大学
@@ -214,26 +207,52 @@ function addUniversity(){
 	//定位地图中心到标记点
 	map.centerAndZoom(point, 18);
 	//调用标记点函数进行标记
-	addMarkerPic(point);
+	var myIcon = new BMap.Icon("http://developer.baidu.com/map/jsdemo/img/fox.gif", new BMap.Size(300,157));
+    var marker = new BMap.Marker(point,{icon:myIcon});  // 创建标注
+    map.addOverlay(marker);
+    
+    var content = "<h4 style='margin:0 0 5px 0;padding:0.2em 0'>这是我的大学</h4>" + 
+	"<img style='float:right;margin:4px' id='imgDemo'" + 
+	"src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493525420090&di=4b9b91d42435458f3fdb5ae809c754b2&imgtype=0&src=http%3A%2F%2Fwww.998xulang.com%2Fpic%2Fbig%2F358_0.jpg'"+
+	"width='200' height='150' title='湖北大学'/>" +
+	"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>地址：湖北省武汉市武昌区友谊大道368号;邮政编码：430062</p>";
+    var infoWindow = new BMap.InfoWindow(content); 
+    marker.addEventListener("click", function(){          
+	   this.openInfoWindow(infoWindow);
+	   //图片加载完毕重绘infowindow
+	   document.getElementById('imgDemo').onload = function (){
+		   infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+	   }
+	});
 }
 
 //显示全部
 function fullscreen(){
 	//清除地图覆盖物
 	map.clearOverlays();
+	
 	//定义信息点坐标集合
 	var data_info = [[111.65, 40.82,"我的小学"],
 					 [106.71, 26.57,"我的初中"],
 					 [116.46,39.92,"我的高中"],
-					 [114.353622,30.56486,"我的大学"]
+					 [114.353622,30.56486,"<h4 style='margin:0 0 5px 0;padding:0.2em 0'>这是我的大学</h4>" + 
+	"<img style='float:right;margin:4px' id='imgDemo'" + 
+	"src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493525420090&di=4b9b91d42435458f3fdb5ae809c754b2&imgtype=0&src=http%3A%2F%2Fwww.998xulang.com%2Fpic%2Fbig%2F358_0.jpg'"+
+	"width='200' height='150' title='湖北大学'/>" +
+	"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>地址：湖北省武汉市武昌区友谊大道368号;邮政编码：430062</p>"]
 					];
 	//遍历每个点的经纬度
 	//data_info[i][0]，每一个坐标点的第一列，即经度
 	//data_info[i][1]，每一个坐标点的第二列，即纬度
 	for (var i = 0; i < data_info.length; i ++) {
-		var marker = new BMap.Point(data_info[i][0],data_info[i][1]);
+		var point = new BMap.Point(data_info[i][0],data_info[i][1]);
+		//显示内容
+		var content = data_info[i][2];
 		//调用添加标注点函数，逐个添加标记点
-		addMarker(marker);
+		
+		var marker = new BMap.Marker(point);
+		map.addOverlay(marker);
+		addClickHandler(content,marker);
 	}
 	//定义地图的中心点，在中国的中心，西安附近
 	var point = new BMap.Point(108.95,34.27);
@@ -241,3 +260,25 @@ function fullscreen(){
 	map.centerAndZoom(point, 5);
 }
 
+//标注点点击事件调用打开窗口信息
+function addClickHandler(content,marker){
+	marker.addEventListener("click",function(e){
+		openInfo(content,e)}
+	);
+}
+
+//弹出窗口
+function openInfo(content,e){
+	
+	var opts = {
+		width : 450,     // 信息窗口宽度
+		height: 280,     // 信息窗口高度
+		title : "信息窗口" , // 信息窗口标题
+		enableMessage:true//设置允许信息窗发送短息
+    }
+    
+	var p = e.target;
+	var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+	var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
+	map.openInfoWindow(infoWindow,point); //开启信息窗口
+}
