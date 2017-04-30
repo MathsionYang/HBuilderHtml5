@@ -282,3 +282,60 @@ function openInfo(content,e){
 	var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
 	map.openInfoWindow(infoWindow,point); //开启信息窗口
 }
+
+//地名检索并返回名称、地址、经纬度
+function localsearth(){
+	var options = {
+		renderOptions: {map: map,autoViewport: true},pageCapacity: 99,
+		onSearchComplete: function(results){
+			// 判断状态是否正确
+			if (local.getStatus() == BMAP_STATUS_SUCCESS){
+				var s = [];
+				map.clearOverlays();
+				for (var i = 0; i < results.getCurrentNumPois(); i ++){
+					s.push(results.getPoi(i).title + ", " + results.getPoi(i).address+", "+results.getPoi(i).point.lng+", "+results.getPoi(i).point.lat);
+					var point = new BMap.Point(results.getPoi(i).point.lng,results.getPoi(i).point.lat);
+					var marker = new BMap.Marker(point);
+					map.addOverlay(marker);
+				}
+				document.getElementById("r-result").innerHTML = s.join("<br/>");
+			}
+		}
+	};
+	var local = new BMap.LocalSearch(map, options);
+	var city = document.getElementById("cityName").value;
+	if(city != ""){
+		map.centerAndZoom(city,11);      // 用城市名设置地图中心点
+	}
+	else{
+		alert('请输入城市名！');
+	}
+	var txt_search = document.getElementById("text_search").value;
+	if(txt_search!= ""){
+		local.search(txt_search);
+	}
+	else{
+		alert('请输入检索名称！');
+	}
+}
+
+//地名检索并分页显示结果
+function searthpage(){
+	var local = new BMap.LocalSearch(map, {
+		renderOptions: {map: map, panel: "r-result"}
+	});
+	var city = document.getElementById("cityName").value;
+	if(city != ""){
+		map.centerAndZoom(city,11);      // 用城市名设置地图中心点
+	}
+	else{
+		alert('请输入城市名！');
+	}
+	var txt_search = document.getElementById("text_search").value;
+	if(txt_search!= ""){
+		local.search(txt_search);
+	}
+	else{
+		alert('请输入检索名称！');
+	}
+}
