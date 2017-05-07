@@ -5,6 +5,8 @@
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/schedulestyle.css" />
 		<script type="text/javascript" src="js/ScheduleClass.js" ></script>
+		<script type="text/javascript" src="js/echarts.js" ></script>
+		
 		<title>我的课程表</title>
 	</head>
 	<body>
@@ -80,8 +82,14 @@
 				    <input type="number" id="txt_c" value="" />
 				    <!--描述：这是按钮控件的例子-->
 					<input type="button" id="btn_compute" value="点我进行计算" onclick="compute()"/>
+					<input type="button" id="btn_loadEcharts" value="加载柱状图" onclick="loadEcharts()"/>
 				</p>
 			</article>
+			
+			<article id="echartsTest"  style="width: 600px;height:400px; align-items: center;" >
+				
+			</article>
+			
 		</section>
 			
 		<footer>

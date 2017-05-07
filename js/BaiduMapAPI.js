@@ -1,3 +1,33 @@
+function loadEcharts() {
+	
+	// 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('echartsTest'));
+
+	
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: 'ECharts 入门示例'
+        },
+        tooltip: {},
+        legend: {
+            data:['销量']
+        },
+        xAxis: {
+            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        },
+        yAxis: {},
+        series: [{
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+}
+
 var map;//定义地图全局变量
 function init(){
 	// 百度地图API功能
@@ -193,37 +223,34 @@ function addSeniormiddle(){
 	var marker = new BMap.Marker(point);
     map.addOverlay(marker);
     marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
-    
-    var content = "这是我的高中";
+    var content = "<h4 style='margin:0 0 5px 0;padding:0.2em 0'>这是我的高中</h4>"+
+    "<iframe width='450px' height='350px' frameborder='no' border='0' marginwidth='0' marginheight='0' scrolling='no' scrolling='no' src='Echarts01.html'/>";
   	addClickHandler(content,marker);
+  	
 }
 
+    
+    
 //添加大学
 function addUniversity(){
 	//清除地图覆盖物
 	map.clearOverlays();
 	//创建添加的标记点
-	var point = new BMap.Point(114.353622,30.56486);
+	var point = new BMap.Point(114.340553,30.582753);
 	//定位地图中心到标记点
 	map.centerAndZoom(point, 18);
 	//调用标记点函数进行标记
 	var myIcon = new BMap.Icon("http://developer.baidu.com/map/jsdemo/img/fox.gif", new BMap.Size(300,157));
     var marker = new BMap.Marker(point,{icon:myIcon});  // 创建标注
     map.addOverlay(marker);
+    var content = "<h4 style='margin:0 0 5px 0;padding:0.2em 0'>湖北大学</h4>"+
+    "<div id='echartsTest' style='width:400px;height:300px;opacity:0.85;'></div>";
+    marker.addEventListener("click",function(e){
+			openInfo(content,e);
+	    	loadEcharts();
+    	}
+	);
     
-    var content = "<h4 style='margin:0 0 5px 0;padding:0.2em 0'>这是我的大学</h4>" + 
-	"<img style='float:right;margin:4px' id='imgDemo'" + 
-	"src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493525420090&di=4b9b91d42435458f3fdb5ae809c754b2&imgtype=0&src=http%3A%2F%2Fwww.998xulang.com%2Fpic%2Fbig%2F358_0.jpg'"+
-	"width='200' height='150' title='湖北大学'/>" +
-	"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>地址：湖北省武汉市武昌区友谊大道368号;邮政编码：430062</p>";
-    var infoWindow = new BMap.InfoWindow(content); 
-    marker.addEventListener("click", function(){          
-	   this.openInfoWindow(infoWindow);
-	   //图片加载完毕重绘infowindow
-	   document.getElementById('imgDemo').onload = function (){
-		   infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
-	   }
-	});
 }
 
 //显示全部
@@ -235,12 +262,14 @@ function fullscreen(){
 	var data_info = [[111.65, 40.82,"我的小学"],
 					 [106.71, 26.57,"我的初中"],
 					 [116.46,39.92,"我的高中"],
-					 [114.353622,30.56486,"<h4 style='margin:0 0 5px 0;padding:0.2em 0'>这是我的大学</h4>" + 
+					 [114.340553,30.582753,"<h4 style='margin:0 0 5px 0;padding:0.2em 0'>这是我的大学</h4>" + 
 	"<img style='float:right;margin:4px' id='imgDemo'" + 
 	"src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493525420090&di=4b9b91d42435458f3fdb5ae809c754b2&imgtype=0&src=http%3A%2F%2Fwww.998xulang.com%2Fpic%2Fbig%2F358_0.jpg'"+
 	"width='200' height='150' title='湖北大学'/>" +
 	"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>地址：湖北省武汉市武昌区友谊大道368号;邮政编码：430062</p>"]
-					];
+					 
+					];		
+					
 	//遍历每个点的经纬度
 	//data_info[i][0]，每一个坐标点的第一列，即经度
 	//data_info[i][1]，每一个坐标点的第二列，即纬度
@@ -258,6 +287,7 @@ function fullscreen(){
 	var point = new BMap.Point(108.95,34.27);
 	//显示中心与地图级别，为了能够看到全国范围
 	map.centerAndZoom(point, 5);
+	
 }
 
 //标注点点击事件调用打开窗口信息
@@ -265,6 +295,7 @@ function addClickHandler(content,marker){
 	marker.addEventListener("click",function(e){
 		openInfo(content,e)}
 	);
+	
 }
 
 //弹出窗口
@@ -272,7 +303,7 @@ function openInfo(content,e){
 	
 	var opts = {
 		width : 450,     // 信息窗口宽度
-		height: 280,     // 信息窗口高度
+		height: 380,     // 信息窗口高度
 		title : "信息窗口" , // 信息窗口标题
 		enableMessage:true//设置允许信息窗发送短息
     }
@@ -281,6 +312,7 @@ function openInfo(content,e){
 	var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
 	var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
 	map.openInfoWindow(infoWindow,point); //开启信息窗口
+	
 }
 
 //地名检索并返回名称、地址、经纬度
