@@ -10,6 +10,6 @@ table{
 	height: 600px;
 	background-image: url(../img/b2.jpg);
 }
-#scorestandard,#computeDemo{
+#scorestandard,#computeDemo,#echartsTest{
 	border: dashed 1px;
 }

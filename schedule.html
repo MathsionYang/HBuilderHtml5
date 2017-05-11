@@ -9,7 +9,7 @@
 		
 		<title>我的课程表</title>
 	</head>
-	<body>
+	<body onload="loadEcharts()">
 		<header>
 			<h1></h1>
 		</header>
@@ -84,11 +84,13 @@
 					<input type="button" id="btn_compute" value="点我进行计算" onclick="compute()"/>
 					<input type="button" id="btn_loadEcharts" value="加载柱状图" onclick="loadEcharts()"/>
 				</p>
+				
+				<p id="echartsTest"  style="width: 980px;height:400px; align-items: center;" >
+				
+				</p>
 			</article>
 			
-			<article id="echartsTest"  style="width: 600px;height:400px; align-items: center;" >
-				
-			</article>
+			
 			
 		</section>
 			

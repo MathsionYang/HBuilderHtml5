@@ -1,24 +1,40 @@
-function loadEcharts() {
+function loadEcharts(){
 	// 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('echartsTest'));
 
     // 指定图表的配置项和数据
     var option = {
         title: {
-            text: 'ECharts 入门示例'
+            text: '一天时间统计'
         },
         tooltip: {},
         legend: {
-            data:['销量']
+            data:['小时']
         },
         xAxis: {
-            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            data: ["吃饭","睡觉","散步或运动","工作","读书学习","其他"]
         },
         yAxis: {},
         series: [{
-            name: '销量',
+            name: '小时',
             type: 'bar',
-            data: [5, 20, 36, 10, 10, 20]
+            
+            itemStyle: {
+                    normal: {
+　　　　　　　　　　　　　　//好，这里就是重头戏了，定义一个list，然后根据所以取得不同的值，这样就实现了，
+                        color: function(params) {
+                            // build a color map as your need.
+                            var colorList = [
+                              '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+                               '#FE8463'    ];
+                            return colorList[params.dataIndex]
+                        },
+                    }
+                },
+　　　　　　　　　　//设置柱的宽度，要是数据太少，柱子太宽不美观~
+　　　　　　　　　　barWidth:70,
+            
+            data: [1.5, 7.5, 1, 9, 1, 4]
         }]
     };
 
